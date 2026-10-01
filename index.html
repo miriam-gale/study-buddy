@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Study Buddy</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+      
+
+        <aside class="sidebar">
+
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+
+                <div>
+                    <h1>Study Buddy</h1>
+                    <p>Plan • Learn • Grow</p>
+                </div>
+            </div>
+
+
+            <nav class="sidebar-nav">
+
+                <button class="nav-item active">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </button>
+
+                <button class="nav-item">
+                    <i class="fa-regular fa-square-check"></i>
+                    <span>Tasks</span>
+                </button>
+
+                <button class="nav-item">
+                    <i class="fa-regular fa-file-lines"></i>
+                    <span>Notes</span>
+                </button>
+
+                <button class="nav-item">
+                    <i class="fa-regular fa-clone"></i>
+                    <span>Flashcards</span>
+                </button>
+
+                <button class="nav-item">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>Quiz</span>
+                </button>
+
+                <button class="nav-item">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>Study Timer</span>
+                </button>
+
+                <button class="nav-item">
+                    <i class="fa-regular fa-lightbulb"></i>
+                    <span>Study Tips</span>
+                </button>
+
+            </nav>
+
+
+            <div class="sidebar-quote">
+
+                <div class="quote-decoration">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+
+                <p>
+                    "Small steps<br>
+                    lead to big<br>
+                    results."
+                </p>
+
+                <i class="fa-regular fa-heart quote-heart"></i>
+
+            </div>
+
+        </aside>
+
+
+
+        <main class="main-content">
+
+
+            <header class="topbar">
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search tasks, notes, or topics..."
+                    >
+
+                </div>
+
+
+                <div class="topbar-right">
+
+                    <div class="current-date" id="currentDate">
+                        <!-- JavaScript inserts date -->
+                    </div>
+
+
+                    <button
+                        class="theme-toggle"
+                        id="themeToggle"
+                        aria-label="Toggle dark mode"
+                    >
+
+                        <i class="fa-solid fa-sun"></i>
+
+                        <span class="toggle-switch">
+                            <span></span>
+                        </span>
+
+                        <i class="fa-solid fa-moon"></i>
+
+                    </button>
+
+
+                    <div class="profile">
+
+                        <img
+                            src="images/avatar.png"
+                            alt="Student profile"
+                        >
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+
+
+            <section class="hero">
+
+                <!-- HERO IMAGE -->
+                <div class="hero-image">
+
+                    <img
+                        src="images/hero.png"
+                        alt="Cozy study desk with laptop, books and plant"
+                    >
+
+                </div>
+
+
+                <div class="hero-content">
+
+                    <p class="greeting-label" id="greeting">
+                        GOOD AFTERNOON,
+                    </p>
+
+                    <h2>
+                        <span id="studentName">Student</span>!
+                        <span class="heart">
+                            ♡
+                        </span>
+                    </h2>
+
+                    <p class="hero-subtitle">
+                        Let's make today productive.
+                    </p>
+
+
+                    <button
+                        class="primary-button"
+                        id="addTaskButton"
+                    >
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Add a Task
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <section class="stats-grid">
+
+
+                <!-- TOTAL TASKS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        <i class="fa-regular fa-clipboard"></i>
+                    </div>
+
+                    <div>
+                        <h3 id="totalTasks">
+                            0
+                        </h3>
+
+                        <p>
+                            Total Tasks
+                        </p>
+                    </div>
+
+                </div>
+
+
+
+                <!-- COMPLETED -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        <i class="fa-regular fa-circle-check"></i>
+                    </div>
+
+                    <div>
+                        <h3 id="completedTasks">
+                            0
+                        </h3>
+
+                        <p>
+                            Completed
+                        </p>
+                    </div>
+
+                </div>
+
+
+
+                <!-- PROGRESS -->
+
+                <div class="stat-card progress-card">
+
+                    <div class="progress-circle">
+
+                        <span id="progressPercentage">
+                            0%
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Progress
+                        </h3>
+
+                        <p id="progressText">
+                            0 of 0 tasks completed
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- STUDY TIME -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon pink">
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
+
+                    <div>
+
+                        <h3 id="studyTime">
+                            0m
+                        </h3>
+
+                        <p>
+                            Study Time
+                            <br>
+                            Today
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section class="middle-grid">
+
+
+
+                <div class="dashboard-card tasks-card">
+
+                    <div class="card-header">
+
+                        <div class="card-title">
+
+                            <i class="fa-regular fa-clipboard"></i>
+
+                            <h3>
+                                Today's Tasks
+                            </h3>
+
+                        </div>
+
+
+                        <select id="taskFilter">
+
+                            <option value="all">
+                                All Tasks
+                            </option>
+
+                            <option value="completed">
+                                Completed
+                            </option>
+
+                            <option value="pending">
+                                Pending
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Tasks will be generated by JavaScript -->
+
+                    <div
+                        class="task-list"
+                        id="taskList"
+                    >
+
+                        <div class="empty-state">
+
+                            <i class="fa-regular fa-clipboard"></i>
+
+                            <p>
+                                No tasks yet.
+                            </p>
+
+                            <span>
+                                Add your first study task!
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-card timer-card">
+
+                    <div class="card-header">
+
+                        <div class="card-title">
+
+                            <i class="fa-regular fa-clock"></i>
+
+                            <h3>
+                                Study Timer
+                            </h3>
+
+                        </div>
+
+
+                        <select id="timerMode">
+
+                            <option value="25">
+                                Pomodoro (25 min)
+                            </option>
+
+                            <option value="50">
+                                Deep Study (50 min)
+                            </option>
+
+                            <option value="5">
+                                Short Break (5 min)
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="timer-container">
+
+                        <div class="timer-circle">
+
+                            <div class="timer-inner">
+
+                                <strong id="timerDisplay">
+                                    25:00
+                                </strong>
+
+                                <span>
+                                    Get focused!
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="timer-controls">
+
+                            <button
+                                class="timer-start"
+                                id="startTimer"
+                            >
+
+                                <i class="fa-solid fa-play"></i>
+
+                                Start
+
+                            </button>
+
+
+                            <button
+                                class="timer-reset"
+                                id="resetTimer"
+                            >
+
+                                <i class="fa-solid fa-rotate-right"></i>
+
+                                Reset
+
+                            </button>
+
+
+                            <button
+                                class="timer-settings"
+                                aria-label="Timer settings"
+                            >
+
+                                <i class="fa-solid fa-gear"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="dashboard-card tip-card">
+
+                    <div class="card-header">
+
+                        <div class="card-title">
+
+                            <i class="fa-regular fa-lightbulb"></i>
+
+                            <h3>
+                                Study Tip
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            id="nextTip"
+                            class="icon-button"
+                            aria-label="Next study tip"
+                        >
+
+                            <i class="fa-solid fa-rotate"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="tip-content">
+
+                        <p id="studyTip">
+
+                            "Try active recall instead of simply
+                            rereading your notes."
+
+                        </p>
+
+                        <span id="tipExplanation">
+
+                            It helps you remember information
+                            for longer.
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="tip-dots">
+
+                        <span class="active"></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+
+            <section class="feature-grid">
+
+
+
+                <div class="feature-card notes-feature">
+
+                    <div class="feature-content">
+
+                        <div class="feature-icon">
+                            <i class="fa-regular fa-file-lines"></i>
+                        </div>
+
+                        <h3>
+                            Notes
+                        </h3>
+
+                        <p>
+                            Write and organize your
+                            study notes.
+                        </p>
+
+
+                        <button
+                            class="feature-button"
+                            id="notesButton"
+                        >
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="feature-image">
+
+                        <img
+                            src="images/notes-card.png"
+                            alt="Study notebook and pen"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature-card flashcards-feature">
+
+                    <div class="feature-content">
+
+                        <div class="feature-icon">
+                            <i class="fa-regular fa-clone"></i>
+                        </div>
+
+                        <h3>
+                            Flashcards
+                        </h3>
+
+                        <p>
+                            Create and study flashcards
+                            from your notes or topics.
+                        </p>
+
+
+                        <button
+                            class="feature-button"
+                            id="flashcardButton"
+                        >
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="feature-image">
+
+                        <img
+                            src="images/flashcards-card.png"
+                            alt="Colorful study flashcards"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature-card quiz-feature">
+
+                    <div class="feature-content">
+
+                        <div class="feature-icon">
+
+                            <i class="fa-solid fa-chart-simple"></i>
+
+                        </div>
+
+                        <h3>
+                            Quiz
+                        </h3>
+
+                        <p>
+                            Test your knowledge with
+                            practice questions.
+                        </p>
+
+
+                        <button
+                            class="feature-button"
+                            id="quizButton"
+                        >
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="feature-image">
+
+                        <img
+                            src="images/quiz-card.png"
+                            alt="Study quiz questions"
+                        >
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+
+    <div
+        class="modal-overlay"
+        id="taskModal"
+    >
+
+        <div class="modal">
+
+            <button
+                class="close-modal"
+                id="closeModal"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+            <div class="modal-icon">
+
+                <i class="fa-solid fa-plus"></i>
+
+            </div>
+
+
+            <h2>
+                Add a Task
+            </h2>
+
+            <p>
+                What do you need to accomplish?
+            </p>
+
+
+            <form id="taskForm">
+
+                <div class="form-group">
+
+                    <label for="taskName">
+                        Task
+                    </label>
+
+                    <input
+                        type="text"
+                        id="taskName"
+                        placeholder="e.g. Revise DOM traversal"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="taskCourse">
+                            Course
+                        </label>
+
+                        <input
+                            type="text"
+                            id="taskCourse"
+                            placeholder="e.g. Web Development"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="taskDate">
+                            Due Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="taskDate"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary-button full-width"
+                >
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Add Task
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
